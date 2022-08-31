@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-title>
+        Novo Produto
+    </mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="product.name" name="name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Preço" [(ngModel)]="product.price" name="price">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <textarea matInput rows="5" placeholder="Descrição" [(ngModel)]="product.description" name="description"></textarea>
+          </mat-form-field>
+    </form>
+</mat-card>
+
+<section class="productFormContainer">
+    <div class="formButtons">
+        <button mat-raised-button 
+            color="accent"
+            (click)="cancel()"
+            >
+            <i class="material-icons">
+                cancel
+            </i>
+            Cancelar
+        </button>
+        <button mat-raised-button 
+            color="primary"
+            (click)="createProduct()"
+            >
+            <i class="material-icons">
+                save
+            </i>
+            Salvar
+        </button>
+    </div>
+</section>

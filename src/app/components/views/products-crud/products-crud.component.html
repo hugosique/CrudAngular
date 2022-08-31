@@ -1,0 +1,16 @@
+<section class="content">
+    <button mat-raised-button
+    color="primary" class="content__button" (click)="navigateToProductCreate()">
+        NOVO PRODUTO
+        <i class="material-icons">
+            add
+        </i>
+    </button>
+</section>
+<div class="tabela">
+    <ul>
+        <li *ngFor="let product of products">
+            {{ product.name }} | {{ product.price }} | {{ product.description }} 
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,25 @@
+<mat-toolbar 
+    color="primary" 
+    class="mat-elevation-z4 header">
+    <div class="header_title">
+        <a routerLink="/">
+            <h1>CRUD |</h1>
+        </a>
+        <span class="header__title--substitle">
+            <a routerLink="{{ routeUrl }}">
+                <i class="material-icons">
+                    {{ icon }}
+                </i>
+                {{ title }}
+            </a>
+        </span>
+    </div>
+    <div class="header__social-media">
+        <a href="https://github.com/hugosique" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/889/889111.png" alt="GitHub Logo">
+        </a>
+        <a href="https://www.linkedin.com/in/hugo-siqueira007/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="Linkedin Logo">
+        </a>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+.productFormContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.formButtons button {
+    font-size: .9rem;
+    margin-left: 15px;
+    text-transform: uppercase;
+    width: 150px;
+}
+.formButtons button i{
+    font-size: 1rem;
+}

@@ -1,0 +1,22 @@
+.container {
+    height: calc(100% - 75px);
+}
+.sidenav {
+    background-color: #424242;
+    border: none;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 9px 0px #1a1919;
+}
+.sidenav .nav-list a {
+    color: #fff
+}
+.sidenav .nav-list a:hover {
+    color: #C2185B;
+}
+.sidenav i {
+    padding-right: 10px;
+}
+.content {
+    padding: 20px;
+}
