@@ -17,6 +17,14 @@ const routes: Routes = [
     path: "products/create",
     component: ProductCreateComponent,
   },
+  {
+    path: "products/update/:id", //Parametro = :
+    component: ProductCreateComponent,
+  },
+  {
+    path: "products/delete/:id",
+    component: ProductCreateComponent,
+  }
 ];
 
 @NgModule({

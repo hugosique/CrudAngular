@@ -1,8 +1,8 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from './../../models/product.model';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-product-create',
@@ -11,16 +11,30 @@ import { MatChipInputEvent } from '@angular/material/chips';
 })
 export class ProductCreateComponent implements OnInit {
 
+  public productId = this.activatedRoute.snapshot.paramMap.get('id') || ''
+
   public product: IProduct = {
     name: '',
     price: null,
     description: '',
   }
 
-  constructor(private productService: ProductService,
-    private router: Router) { }
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
+    if(this.productId) this.getProduct()
+    
+
+  }
+
+  getProduct() {
+    this.productService.readByID(this.productId).subscribe((res)=> {
+      this.product = res
+    })
   }
 
   createProduct() {
@@ -28,8 +42,14 @@ export class ProductCreateComponent implements OnInit {
       return this.productService.showMessage('Ainda há campos a serem preenchidos!')
     }
 
-    this.productService.create(this.product).subscribe(() => {
-      this.productService.showMessage('Produto criado com sucesso!')
+    const request = !this.productId
+    ? this.productService.create(this.product)
+    : this.productService.update(this.product);
+
+    request.subscribe(() => {
+      this.productService.showMessage(
+        `Produto ${this.productId ? 'atualizado': 'criado'} com sucesso!`
+        )
       this.router.navigate(['products'])
     })
   }

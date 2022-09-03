@@ -3,4 +3,17 @@
     font-size: .8rem;
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
+}
+table {
+    width: 100%;
+}
+.edit {
+    margin-right: 8px;
+}
+.edit > i {
+    color: #c4c42d;
+}
+.delete > i {
+    color: #ff0000;
 }

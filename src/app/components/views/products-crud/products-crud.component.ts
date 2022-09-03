@@ -12,6 +12,7 @@ import { HeaderService } from '../../templates/header/header.service';
 export class ProductsCrudComponent implements OnInit {
 
   products: IProduct[]
+  displayedColumns = ['id', 'name', 'price', 'description', 'action']
 
   constructor(private router: Router, public productService: ProductService,
     private headerService: HeaderService) { 
@@ -29,7 +30,6 @@ export class ProductsCrudComponent implements OnInit {
 
   getProducts() {
     this.productService.read().subscribe(products => {
-      console.log(products)
       this.products = products
     })
   }

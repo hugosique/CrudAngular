@@ -24,11 +24,20 @@ export class ProductService {
   create(product: IProduct): Observable<IProduct> {
     return this.http.post<IProduct>(API_BASE, product)
   }
+
   read(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(API_BASE)
   }
 
+  readByID(id: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${API_BASE}/${id}`)
+  }
+
   update(product: IProduct): Observable<IProduct> {
-    return this.http.patch<IProduct>(API_BASE, product)
+    return this.http.put<IProduct>(`${API_BASE}/${product.id}`, product)
+  }
+
+  delete(id: string): Observable<IProduct> {
+    return this.http.delete<IProduct>(`${API_BASE}/${id}`)
   }
 }
